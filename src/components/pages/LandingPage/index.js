@@ -51,14 +51,14 @@ const DateDescriptor = styled.ul`
 `;
 const Label = styled.li``;
 
-const COUNT_DOWN = 1569801600;
+const COUNT_DOWN = 1569920400;
 const date = Date.now() + COUNT_DOWN;
 
 const LandingPage = () => {
   return (
     <DefaultLandingPage>
       <Logo>
-        <img src={whiteLogo} width="170px" height="126px" alt="wayo-logo" />
+        <img src={whiteLogo} width="170px" height="130px" alt="wayo-logo" />
       </Logo>
       <StyledCountDown>
         <Countdown date={date} />
