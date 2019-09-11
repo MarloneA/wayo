@@ -51,7 +51,7 @@ const DateDescriptor = styled.ul`
 `;
 const Label = styled.li``;
 
-const COUNT_DOWN = 1000000000;
+const COUNT_DOWN = 1569801600;
 const date = Date.now() + COUNT_DOWN;
 
 const LandingPage = () => {
