@@ -14,3 +14,6 @@ RUN npm install react-scripts@3.0.1 -g --silent
 
 # start app
 CMD ["npm", "start"]
+
+#Expose Port
+EXPOSE 1920/tcp
