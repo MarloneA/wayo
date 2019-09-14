@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import Countdown from "react-countdown-now";
 import fb from "../../../assets/facebook.png";
