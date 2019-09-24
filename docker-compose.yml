@@ -1,0 +1,9 @@
+version: '3.5'
+
+services:
+
+  wayo_coming_soon:
+    image: iamthetwice/wayo_coming_soon
+    container_name: wayo_coming_soon
+    ports:
+      - '1920:80'
