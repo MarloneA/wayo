@@ -67,7 +67,7 @@ const Label = styled.li`
 `;
 const Keys = styled.li``;
 
-const COUNT_DOWN = 1569909600000;
+const COUNT_DOWN = 1570449600000;
 
 const LandingPage = () => {
   const [now, setnow] = useState({});
