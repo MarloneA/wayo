@@ -1,0 +1,293 @@
+{
+  "shoes": [
+    {
+      "brand": "Vans",
+      "code": "WS841J",
+      "color": "bordeaux",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-211.jpg",
+        " https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-212.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-213.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-214.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-215.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-216.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-217.jpg"
+      ],
+      "name": "Old Skool DX",
+      "price": "9180",
+      "size": "42"
+    },
+    {
+      "brand": "ASICS",
+      "code": "WS469V",
+      "color": "green",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-199.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-200.jpg"
+      ],
+      "name": "ALPINE XT",
+      "price": "9180",
+      "size": "44.5"
+    },
+    {
+      "brand": "Nike Sportswear",
+      "code": "WS770C",
+      "color": "White",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-162.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-163.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-164.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-165.jpg"
+      ],
+      "name": "NIKE BLAZER LOW PRM",
+      "price": "8280",
+      "size": "41"
+    },
+    {
+      "brand": "Nike Performance",
+      "code": "WS973Q",
+      "color": "black",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-180.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-181.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-182.jpg"
+      ],
+      "name": "WMNS NIKE FLEX CONTACT 2",
+      "price": "6420",
+      "size": "37.5"
+    },
+    {
+      "brand": "Nike Sportswear",
+      "code": "WS609I",
+      "color": "White",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-6.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-9.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-14.jpg"
+      ],
+      "name": "NIKE AIR PEGASUS 92/16",
+      "price": "11040",
+      "size": "40"
+    },
+    {
+      "brand": "ASICS",
+      "code": "WS843X",
+      "color": "black",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-167.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-170.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-172.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-175.jpg"
+      ],
+      "name": "fuzeX RUSH",
+      "price": "8280",
+      "size": "42.5"
+    },
+    {
+      "brand": "adidas Performance",
+      "code": "WS247D",
+      "color": "black",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-192.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-193.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-194.jpg"
+      ],
+      "name": "TERREX TRAILMAKER",
+      "price": "11040",
+      "size": "42 2/3"
+    },
+    {
+      "brand": "Nike Sportswear",
+      "code": "WS628P",
+      "color": "mauve",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/WS628P.jpg"
+      ],
+      "name": "NIKE AIR MAX JEWELL PRM",
+      "price": "11130",
+      "size": "40"
+    },
+    {
+      "brand": "Fila",
+      "code": "WS625H",
+      "color": "tan",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-185.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-187.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-189.jpg"
+      ],
+      "name": "Grunge Mid",
+      "price": "9180",
+      "size": "43"
+    },
+    {
+      "brand": "NIKE",
+      "code": "",
+      "color": "Black/cool grey",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-205.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-206.jpg"
+      ],
+      "name": "NIKE FREE",
+      "price": "TBA",
+      "size": "38.5"
+    },
+    {
+      "brand": "Pretty Ballerinas",
+      "code": "",
+      "color": "light brown",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-103.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-104.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-106.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-107.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-108.jpg"
+      ],
+      "name": "TBA",
+      "price": "TBA",
+      "size": "42"
+    },
+    {
+      "brand": "pier one",
+      "code": "",
+      "color": "Black stripes",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-155.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-156.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-157.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-160.jpg"
+      ],
+      "name": "TBA",
+      "price": "TBA",
+      "size": "36"
+    },
+    {
+      "brand": "caprice",
+      "code": "",
+      "color": "white nappa",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-91.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-95.jpg"
+      ],
+      "name": "TBA",
+      "price": "TBA",
+      "size": "36"
+    },
+    {
+      "brand": "Tamaris",
+      "code": "",
+      "color": "white",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-67.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-71.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-72.jpg"
+      ],
+      "name": "TBA",
+      "price": "TBA",
+      "size": "40"
+    },
+    {
+      "brand": "Anna Field",
+      "code": "",
+      "color": "nude",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-134.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-136.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-137.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-138.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-139.jpg"
+      ],
+      "name": "TBA",
+      "price": "TBA",
+      "size": "41"
+    },
+    {
+      "brand": "Under Armour",
+      "code": "WS285I",
+      "color": "blue",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-201.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-202.jpg"
+      ],
+      "name": "UA Threadborne Velociti",
+      "price": "11130",
+      "size": "42"
+    },
+    {
+      "brand": "Converse",
+      "code": "",
+      "color": "white",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-43.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-46.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-58.jpg"
+      ],
+      "name": "TBA",
+      "price": "TBA",
+      "size": "39"
+    },
+    {
+      "brand": "Pretty Ballerinas",
+      "code": "",
+      "color": "Yellow",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-2.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-3.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-4.jpg"
+      ],
+      "name": "TBA",
+      "price": "TBA",
+      "size": "40.5"
+    },
+    {
+      "brand": "Sketchers",
+      "code": "",
+      "color": "Grey",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-197.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-198.jpg"
+      ],
+      "name": "TBA",
+      "price": "TBA",
+      "size": "40"
+    },
+    {
+      "brand": "NIKE",
+      "code": "",
+      "color": "Green",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-203.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-204.jpg"
+      ],
+      "name": "TBA",
+      "price": "TBA",
+      "size": "40.5"
+    },
+    {
+      "brand": "Toms",
+      "code": "",
+      "color": "Silver crochet glitter",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-76.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-77.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-83.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-86.jpg"
+      ],
+      "name": "TBA",
+      "price": "TBA",
+      "size": "38"
+    },
+    {
+      "brand": "River Island",
+      "code": "",
+      "color": "blue",
+      "files": [
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-140.jpg",
+        "https://litudian.s3.ap-south-1.amazonaws.com/wayo-photos/Wayo_FootWear-141.jpg"
+      ],
+      "name": "TBA",
+      "price": "TBA",
+      "size": "36"
+    }
+  ]
+}
