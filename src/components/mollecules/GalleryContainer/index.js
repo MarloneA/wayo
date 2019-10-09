@@ -1,11 +1,40 @@
 import React from "react";
-import SHOE_COLLECTION from "../../../fixtures/Shoes/index.json";
+
 import Modal from "@material-ui/core/Modal";
 
 import styled, { css } from "styled-components";
+import menu from "../../../assets/images/iconmonstr-menu-list-thin-240.png";
+import close from "../../../assets/images/close.png";
+import prev from "../../../assets/images/prev.png";
+import next from "../../../assets/images/next.png";
+
+const Label = styled.p`
+  color: #808080;
+  margin: 0;
+`;
+const LabelWrapper = styled.div``;
+const Item = styled.p`
+  font-size: 1rem;
+`;
+const ModalImage = styled.img`
+  object-fit: cover;
+  /* height: 100%; */
+  width: 90%;
+`;
+const IconButtons = styled.button`
+  border: none;
+  background: white;
+  margin: 0;
+  margin-bottom: 22rem;
+  &:hover {
+    cursor: pointer;
+  }
+  /* ${props => props.space && css``} */
+`;
 
 class GalleryContainer extends React.Component {
   state = {
+    shoeCollection: [],
     open: false,
     toggleDetails: false,
     buyShoes: false,
@@ -18,6 +47,16 @@ class GalleryContainer extends React.Component {
     shoe: {},
     currentIndex: 1
   };
+
+  componentDidMount() {
+    fetch("http://ngonga.com:8082/api/v1/wayo")
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ shoeCollection: data });
+      })
+      .catch(error => console.log(error));
+  }
+
   handleOpen = e => {
     this.setState({
       open: true
@@ -35,46 +74,14 @@ class GalleryContainer extends React.Component {
     this.setState({
       openImage: url
     });
-
-    // let imageUrls = [];
-
-    // this.state.images.map(imageUrl => {
-    //   imageUrls.push(imageUrl);
-    // });
-
-    // //identify index of current image being viewed
-    // let selectedIndex = imageUrls.indexOf(url);
-
-    // this.setState({
-    //   openImage: url,
-    //   selectedIndex: selectedIndex
-    // });
-
-    // // conditional to Determine which button to disable
-    // if (selectedIndex + 1 === imageUrls.length) {
-    //   this.setState({
-    //     disableNext: true,
-    //     disablePrevious: false
-    //   });
-    // } else if (selectedIndex === imageUrls.length - imageUrls.length) {
-    //   this.setState({
-    //     disableNext: false,
-    //     disablePrevious: true
-    //   });
-    // } else {
-    //   this.setState({
-    //     disableNext: false,
-    //     disablePrevious: false
-    //   });
-    // }
   };
 
   nextImages = () => {
     const { images, currentIndex } = this.state;
 
-    if (currentIndex <= images.length - 1) {
+    if (currentIndex < images.length) {
       this.setState({ currentIndex: currentIndex + 1 }, () =>
-        this.currentImage(images[currentIndex + 1])
+        this.currentImage(images[currentIndex])
       );
     } else {
       this.setState({
@@ -82,52 +89,46 @@ class GalleryContainer extends React.Component {
         disablePrevious: false
       });
     }
-    console.log("currentIndex: ", currentIndex);
   };
 
   previousImages = () => {
     const { images, currentIndex } = this.state;
 
-    let index = currentIndex - 1;
-    console.log("index: ", index);
-
-    if (index >= -1) {
-      this.setState({ currentIndex: index }, () =>
+    if (currentIndex > -1) {
+      this.setState({ currentIndex: currentIndex - 1 }, () =>
         this.currentImage(images[currentIndex])
       );
     } else {
       this.setState({
-        disablePrevious: true,
-        disableNext: false
+        disableNext: false,
+        disablePrevious: true
       });
     }
-    console.log("currentIndex: ", currentIndex);
   };
   render() {
-    const { openImage } = this.state;
+    const { openImage, shoe, shoeCollection } = this.state;
+
     return (
       <>
-        <ul class="gallery-container">
-          {SHOE_COLLECTION.shoes.map(shoe => {
-            return (
-              <li
-                onClick={() => {
-                  this.handleOpen();
-                  this.setState(
-                    {
+        <ul id="discover" class="gallery-container">
+          {shoeCollection &&
+            shoeCollection.map(shoe => {
+              return (
+                <li
+                  onClick={() => {
+                    this.handleOpen();
+                    this.setState({
                       images: shoe.files,
                       shoe
-                    },
-                    () => console.log(this.state.images)
-                  );
-                  this.currentImage(shoe.files[0]);
-                }}
-                class="gallery-image"
-              >
-                <img src={shoe.files[0]} alt="shoe" />
-              </li>
-            );
-          })}
+                    });
+                    this.currentImage(shoe.files[0]);
+                  }}
+                  class="gallery-image"
+                >
+                  <img src={shoe.files[0]} alt="shoe" />
+                </li>
+              );
+            })}
         </ul>
         <Modal
           aria-labelledby="simple-modal-title"
@@ -142,56 +143,103 @@ class GalleryContainer extends React.Component {
               width: "100vw"
             }}
           >
-            <div style={{ height: "100vh", width: "5%", background: "white" }}>
-              <button
+            <div
+              style={{
+                display: "flex",
+                flexFlow: "column",
+                justifyContent: "center",
+                height: "100vh",
+                width: "5%",
+                background: "white"
+              }}
+            >
+              <IconButtons
                 onClick={() =>
                   this.setState({ toggleDetails: !this.state.toggleDetails })
                 }
                 style={{ padding: "10px" }}
               >
-                Toggle Details
-              </button>
-              <button
+                <img src={menu} alt="menu" width="35px" height="25px" />
+              </IconButtons>
+              <IconButtons
                 onClick={() => this.previousImages()}
                 style={{ padding: "10px" }}
                 disabled={this.state.disablePrevious}
               >
-                previous image
-              </button>
+                <img src={prev} alt="previous" width="25px" height="25px" />
+              </IconButtons>
             </div>
             {this.state.toggleDetails && (
               <div
-                style={{ height: "100vh", width: "20%", background: "white" }}
-              ></div>
+                style={{
+                  display: "flex",
+                  flexFlow: "column",
+                  justifyContent: "center",
+                  paddingBlock: "0 2rem",
+                  height: "100vh",
+                  width: "20%",
+                  background: "white",
+                  transitionDuration: "3s ease-in"
+                }}
+              >
+                <LabelWrapper>
+                  <Label>Shoe code</Label>
+                  <Item>{shoe && shoe.code.toUpperCase()}</Item>
+                </LabelWrapper>
+                <LabelWrapper>
+                  <Label>name</Label>
+                  <Item>{shoe && shoe.name.toUpperCase()}</Item>
+                </LabelWrapper>
+                <LabelWrapper>
+                  <Label>brand</Label>
+                  <Item>{shoe && shoe.brand.toUpperCase()}</Item>
+                </LabelWrapper>
+                <LabelWrapper>
+                  <Label>Available colors</Label>
+                  <Item>{shoe && shoe.color.toUpperCase()}</Item>
+                </LabelWrapper>
+                <LabelWrapper>
+                  <Label>Available sizes</Label>
+                  <Item>{shoe && shoe.size.toUpperCase()}</Item>
+                </LabelWrapper>
+                <LabelWrapper>
+                  <Label>price</Label>
+                  <Item>{shoe && shoe.price.toUpperCase()}</Item>
+                </LabelWrapper>
+              </div>
             )}
             <div
               style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
                 height: "100vh",
                 width: `${this.state.toggleDetails ? "70%" : "90%"}`,
                 background: "white"
               }}
             >
-              <div>
-                <img src={openImage} height="720px" width="900px" />
-              </div>
+              <ModalImage src={openImage} />
             </div>
-            <div style={{ height: "100vh", width: "5%", background: "white" }}>
-              <span
-                onClick={this.handleClose}
-                className="close-gallery"
-                style={{
-                  justifyContent: "space-around"
-                }}
-              >
-                X
-              </span>
-              <button
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                flexFlow: "column",
+                height: "100vh",
+                width: "5%",
+                background: "white"
+              }}
+            >
+              <IconButtons onClick={this.handleClose} style={{}}>
+                <img src={close} alt={close} width="25px" height="25px" />
+              </IconButtons>
+              <IconButtons
                 onClick={() => this.nextImages()}
                 style={{ padding: "10px" }}
                 disabled={this.state.disableNext}
               >
-                Next Image
-              </button>
+                <img src={next} alt="next" width="25px" height="25px" />
+              </IconButtons>
             </div>
           </div>
         </Modal>
@@ -201,135 +249,3 @@ class GalleryContainer extends React.Component {
 }
 
 export default GalleryContainer;
-
-// const getModalStyle = () => {
-//   const top = 50;
-//   const left = 50;
-
-//   return {
-//     top: `${top}%`,
-//     left: `${left}%`,
-//     transform: `translate(-${top}%, -${left}%)`
-//   };
-// };
-
-// const styles = theme => ({
-//   paper: {
-//     position: "absolute",
-//     boxShadow: theme.shadows[5],
-//     outline: "none"
-//   }
-// });
-
-// const GalleryContainerWrapped = withStyles(styles)(GalleryContainer);
-// state = {
-//   open: false,
-//   images: [SHOE_COLLECTION && SHOE_COLLECTION.shoes],
-//   openImage: "",
-//   previousImages: [],
-//   nextImages: []
-// };
-
-// handleOpen = e => {
-//   this.setState({
-//     open: true
-//   });
-// };
-// handleClose = () => {
-//   this.setState({
-//     open: false,
-//     openImage: ""
-//   });
-// };
-
-// currentImage = url => {
-//   this.setState({
-//     openImage: url
-//   });
-// };
-
-// nextImages = image => {
-//   const { images } = this.state;
-//   console.log("images: ", images);
-
-//   let imageUrls = [];
-
-//   images.map(image => {
-//     imageUrls.push(image.files[0]);
-//   });
-
-//   let currentIndex = imageUrls.indexOf(image);
-
-//   this.currentImage(imageUrls[currentIndex + 1]);
-//   console.log(currentIndex + 1);
-// };
-
-// previousImages = image => {
-//   const { images } = this.state;
-
-//   let imageUrls = [];
-
-//   images.map(image => {
-//     imageUrls.push(image.files[0]);
-//   });
-
-//   let currentIndex = imageUrls.indexOf(image);
-
-//   this.currentImage(imageUrls[currentIndex - 1]);
-//   console.log(currentIndex - 1);
-// };
-
-// render() {
-//   const { classes } = this.props;
-//   const { openImage } = this.state;
-//   return (
-//     <ul class="gallery-container">
-//       {SHOE_COLLECTION.shoes.map(shoe => (
-//         <li
-//           onClick={() => {
-//             this.handleOpen();
-//             this.currentImage(shoe.files[0]);
-//           }}
-//           class="gallery-image"
-//         >
-//           <img src={shoe.files[0]} alt="shoe" />
-//         </li>
-//       ))}
-//     </ul>
-//       <Modal
-//         aria-labelledby="simple-modal-title"
-//         aria-describedby="simple-modal-description"
-//         open={this.state.open}
-//         className="custom-modal"
-//       >
-//         <div style={getModalStyle()} className={classes.paper}>
-//           <span
-//             onClick={this.handleClose}
-//             className="close-gallery"
-//             style={{ padding: "10px" }}
-//           >
-//             Click me
-//           </span>
-
-//           <button
-//             onClick={() => this.nextImages(openImage)}
-//             className="next-image"
-//             style={{ padding: "10px", background: "yellow" }}
-//           >
-//             <img src="" />
-//           </button>
-//           <button
-//             onClick={() => this.previousImages(openImage)}
-//             className="previous-image"
-//             style={{ padding: "10px", background: "blue" }}
-//           >
-//             previous image
-//           </button>
-
-//           <div>
-//             <img src={openImage} height="720px" width="900px" />
-//           </div>
-//         </div>
-//       </Modal>
-//   );
-// }

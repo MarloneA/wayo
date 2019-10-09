@@ -17,6 +17,20 @@ const CTAButtons = styled.div`
   justify-content: space-between;
 `;
 
+const Link = styled.a`
+  padding: 0.8rem;
+  font-weight: 900;
+  background-color: white;
+  border: 1.8px solid;
+  font-size: 0.8rem;
+
+  &:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+  }
+`;
+
 const LandingPageSection = () => {
   const [photoIndex, setphotoIndex] = useState(0);
   const { shoes } = SHOE_COLLECTION;
@@ -27,32 +41,11 @@ const LandingPageSection = () => {
       <div class="cta-controls">
         <p>SHOES BROUGHT TO YOU BY WAYO</p>
         <CTAButtons>
-          <Button>Discover More</Button>
+          <Button href="#discover">Discover More</Button>
           <Button>Make an Order</Button>
         </CTAButtons>
       </div>
-      {/* <Carousel showArrows={true}>
-        <div>
-          {images &&
-            images.map(image => (
-              <>
-                <img src={image} />
-                <p className="legend">Legend 1</p>
-              </>
-            ))}
-        </div>
-      </Carousel> */}
-      {/* <Lightbox
-        mainSrc={images[photoIndex]}
-        nextSrc={images[(photoIndex + 1) % images.length]}
-        prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-        onMovePrevRequest={() =>
-          setphotoIndex((photoIndex + images.length - 1) % images.length)
-        }
-        onMoveNextRequest={() =>
-          setphotoIndex((photoIndex + 1) % images.length)
-        }
-      /> */}
+
       <img
         class="landing-page-image-1"
         src={shoes[2].files[0]}
