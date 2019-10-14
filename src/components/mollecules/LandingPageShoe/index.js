@@ -5,8 +5,8 @@ const LandingPageShoe = ({ shoe }) => {
   const { name, brand, size, color, files } = shoe;
   return (
     <>
-      <img class="wayo-logo" src={logo} alt="wayo logo" />
-      <b class="cta-hash-tag">#StepInStyleNaWayo</b>
+      <img src={logo} alt="wayo logo" class="wayo-logo" />
+      <b>#StepInStyleNaWayo</b>
       <div class="shoe-brand">{name.toUpperCase()}</div>
       <div class="shoe-specifications">
         <div class="shoe-size-guide">
@@ -22,7 +22,7 @@ const LandingPageShoe = ({ shoe }) => {
             <div>UK</div>
           </div>
         </div>
-        <div class="shoe-material">
+        <div>
           <p>AVAILABLE COLORS</p>
           <p>{color}</p>
         </div>

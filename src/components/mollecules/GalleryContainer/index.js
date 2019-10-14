@@ -4,32 +4,92 @@ import Modal from "@material-ui/core/Modal";
 
 import styled, { css } from "styled-components";
 import menu from "../../../assets/images/iconmonstr-menu-list-thin-240.png";
+import menuThick from "../../../assets/images/menu-thick.png";
 import close from "../../../assets/images/close.png";
 import prev from "../../../assets/images/prev.png";
 import next from "../../../assets/images/next.png";
+import info from "../../../assets/images/info.png";
 
 const Label = styled.p`
   color: #808080;
-  margin: 0;
+  width: 50%;
 `;
-const LabelWrapper = styled.div``;
+const LabelWrapper = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+`;
 const Item = styled.p`
   font-size: 1rem;
+  width: 50%;
 `;
 const ModalImage = styled.img`
   object-fit: cover;
-  /* height: 100%; */
   width: 90%;
 `;
 const IconButtons = styled.button`
   border: none;
   background: white;
   margin: 0;
-  margin-bottom: 22rem;
+  margin-bottom: 42vh;
   &:hover {
     cursor: pointer;
+
   }
-  /* ${props => props.space && css``} */
+  &:focus {
+    outline: none;
+  }
+`;
+
+const ToggleDetails = styled.div`
+  order: 1;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  height: 100vh;
+  width: 20%;
+  background: white;
+  transition-duration: 3s ease-in;
+  padding-left: 50px;
+  margin: 0;
+
+  @media screen and (max-width: 960px) {
+    width: 80%;
+    position: absolute;
+  }
+  @media screen and (max-width: 776px) {
+    width: 90%;
+    position: absolute;
+  }
+  @media screen and (max-width: 600px) {
+    width: 85%;
+    position: absolute;
+  }
+`;
+
+const ImageWrapper = styled.div`
+  order: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+
+  background: white;
+  width: ${props => props.size};
+
+  @media screen and (max-width: 768px) {
+    width: auto;
+    background: white;
+  }
+`;
+const ShoeProperties = styled.div`
+  display: flex;
+  flex-flow: row;
+  width: 90%;
+
+  @media screen and (max-width: 768px) {
+    position: relative;
+  }
 `;
 
 class GalleryContainer extends React.Component {
@@ -66,7 +126,8 @@ class GalleryContainer extends React.Component {
     this.setState({
       open: false,
       openImage: "",
-      images: []
+      images: [],
+      toggleDetails: false
     });
   };
 
@@ -139,8 +200,7 @@ class GalleryContainer extends React.Component {
           <div
             style={{
               display: "flex",
-              flexFlow: "row",
-              width: "100vw"
+              flexFlow: "row"
             }}
           >
             <div
@@ -149,7 +209,7 @@ class GalleryContainer extends React.Component {
                 flexFlow: "column",
                 justifyContent: "center",
                 height: "100vh",
-                width: "5%",
+                padding: "0.5% 1%",
                 background: "white"
               }}
             >
@@ -159,7 +219,7 @@ class GalleryContainer extends React.Component {
                 }
                 style={{ padding: "10px" }}
               >
-                <img src={menu} alt="menu" width="35px" height="25px" />
+                <img src={menuThick} alt="menu" width="45px" height="25px" />
               </IconButtons>
               <IconButtons
                 onClick={() => this.previousImages()}
@@ -169,64 +229,64 @@ class GalleryContainer extends React.Component {
                 <img src={prev} alt="previous" width="25px" height="25px" />
               </IconButtons>
             </div>
-            {this.state.toggleDetails && (
-              <div
-                style={{
-                  display: "flex",
-                  flexFlow: "column",
-                  justifyContent: "center",
-                  paddingBlock: "0 2rem",
-                  height: "100vh",
-                  width: "20%",
-                  background: "white",
-                  transitionDuration: "3s ease-in"
-                }}
+            <ShoeProperties>
+              <ImageWrapper
+                size={(this.state.toggleDetails && "80%") || "100%"}
+                class="hidden"
               >
-                <LabelWrapper>
-                  <Label>Shoe code</Label>
-                  <Item>{shoe && shoe.code.toUpperCase()}</Item>
-                </LabelWrapper>
-                <LabelWrapper>
-                  <Label>name</Label>
-                  <Item>{shoe && shoe.name.toUpperCase()}</Item>
-                </LabelWrapper>
-                <LabelWrapper>
-                  <Label>brand</Label>
-                  <Item>{shoe && shoe.brand.toUpperCase()}</Item>
-                </LabelWrapper>
-                <LabelWrapper>
-                  <Label>Available colors</Label>
-                  <Item>{shoe && shoe.color.toUpperCase()}</Item>
-                </LabelWrapper>
-                <LabelWrapper>
-                  <Label>Available sizes</Label>
-                  <Item>{shoe && shoe.size.toUpperCase()}</Item>
-                </LabelWrapper>
-                <LabelWrapper>
-                  <Label>price</Label>
-                  <Item>{shoe && shoe.price.toUpperCase()}</Item>
-                </LabelWrapper>
-              </div>
-            )}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "100vh",
-                width: `${this.state.toggleDetails ? "70%" : "90%"}`,
-                background: "white"
-              }}
-            >
-              <ModalImage src={openImage} />
-            </div>
+                <ModalImage src={openImage} />
+              </ImageWrapper>
+              {this.state.toggleDetails && (
+                <ToggleDetails>
+                  <p>
+                    <span style={{ marginRight: "5px" }}>
+                      <img
+                        src={info}
+                        width="15px"
+                        height="15px"
+                        alt="info-icon"
+                      />
+                    </span>
+                    SHOE DETAILS
+                  </p>
+                  <LabelWrapper>
+                    <Label>Shoe code</Label>
+                    <Item>{shoe && shoe.code.toUpperCase()}</Item>
+                  </LabelWrapper>
+                  <LabelWrapper>
+                    <Label>name</Label>
+                    <Item>{shoe && shoe.name.toUpperCase()}</Item>
+                  </LabelWrapper>
+                  <LabelWrapper>
+                    <Label>brand</Label>
+                    <Item>{shoe && shoe.brand.toUpperCase()}</Item>
+                  </LabelWrapper>
+                  <LabelWrapper>
+                    <Label>Available colors</Label>
+                    <Item>{shoe && shoe.color.toUpperCase()}</Item>
+                  </LabelWrapper>
+                  <LabelWrapper>
+                    <Label>Available sizes</Label>
+                    <Item>{shoe && shoe.size.toUpperCase()}</Item>
+                  </LabelWrapper>
+                  <LabelWrapper>
+                    <Label>price</Label>
+                    <Item>
+                      KES{" "}
+                      {(shoe && new Intl.NumberFormat().format(shoe.price)) ||
+                        "-"}
+                    </Item>
+                  </LabelWrapper>
+                </ToggleDetails>
+              )}
+            </ShoeProperties>
             <div
               style={{
                 display: "flex",
                 justifyContent: "center",
                 flexFlow: "column",
                 height: "100vh",
-                width: "5%",
+                padding: "0.5% 1%",
                 background: "white"
               }}
             >

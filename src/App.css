@@ -8,15 +8,6 @@ ul {
 ul {
   list-style: none;
 }
-.landing-page {
-  display: grid;
-  grid-template-rows: repeat(8, 1fr);
-  grid-template-columns: repeat(16, 1fr);
-  column-gap: 1rem;
-  row-gap: 1rem;
-  width: 100vw;
-  height: 100vh;
-}
 .banner {
   display: flex;
   justify-content: center;
@@ -25,13 +16,26 @@ ul {
   height: 20vh;
   font-size: 3rem;
 }
-.wayo-logo {
-  grid-area: 1 / 8 / span 3 / span 3;
-  width: 10rem;
-  height: 10rem;
+@media screen and (max-width: 768px) {
+  .banner {
+    text-align: center;
+    font-size: 2rem;
+  }
+}
 
+.wayo-logo {
+  width: 4rem;
+  height: 4rem;
   object-fit: cover;
-  object-position: 50% 50%;
+  object-position: -11px 3px;
+  margin-bottom: -70px;
+  border: 3px solid;
+  border-radius: 100%;
+}
+@media screen and (max-width: 1439.5px) {
+  .wayo-logo {
+    margin-bottom: 10px;
+  }
 }
 .cta-hash-tag {
   grid-area: 1 / 2 / span 1 / span 3;
@@ -39,20 +43,26 @@ ul {
 }
 .shoe-brand {
   grid-area: 2 / 2 / span 2 / span 3;
-  font-size: 3rem;
+  font-size: 3em;
   font-weight: 600;
   grid-row-start: 3;
 }
+@media screen and (max-width: 768px) {
+  .shoe-brand {
+    grid-area: 2 / 2 / span 2 / span 3;
+    font-size: 2em;
+    font-weight: 600;
+    grid-row-start: 3;
+  }
+}
 .shoe-specifications {
-  grid-area: 4 / 2 / span 2 / span 6;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  grid-row-start: 5;
+  flex-flow: row wrap;
 }
 .shoe-size-guide {
   display: flex;
   flex-direction: column;
+  margin-right: 10%;
 }
 .shoe-size-guide > div {
   display: flex;
@@ -61,26 +71,8 @@ ul {
   padding: 0.3rem 0;
   width: 35vh;
 }
-.shoe-material {
-  grid-area: 6 / 2 / span 1 / span 3;
-}
-.cta-controls {
-  grid-area: 6 / 2 / span 2 / span 3;
-  grid-row-start: 7;
-}
-
-.landing-page-image-1 {
-  grid-area: 1 / 7 / span 8 / span 10;
-  width: 62.1vw;
-  height: 100vh;
-  object-fit: cover;
-  object-position: 0 0;
-  -webkit-clip-path: polygon(50% 0, 100% 0%, 100% 100%, 0% 100%);
-  clip-path: polygon(50% -60%, 100% 0%, 100% 100%, 0% 100%);
-}
 
 .slider {
-  /* background: url("./assets/images/Men/Wayo_FootWear-213.jpg") no-repeat; */
   background-size: cover;
   height: 100vh;
   grid-area: 1 / 1 / span 12 / span 12;
@@ -138,7 +130,6 @@ ul {
 .shoes-slider {
   list-style: none;
   overflow: hidden;
-  /* margin-top: 4em; */
   padding: 2rem;
 }
 .item {
@@ -159,14 +150,6 @@ ul {
 .cta-hash-tag {
   padding-left: 5%;
 }
-
-/* .shoe-category-details {
-  background-color: lightgray;
-  padding: 20px;
-  width: 200px;
-  height: 200px;
-} */
-
 .shoe-category > span {
   border: 1px solid;
   height: 20px;
@@ -180,32 +163,21 @@ ul {
 
 .steps-to-order {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
   align-items: center;
-  width: 100%;
-  /* height: ; */
-  /* font-size: 3rem; */
 }
 .steps-to-order > h4 {
   font-size: 2rem;
+  width: 100vw;
+  text-align: center;
 }
 .steps {
-  /* display: flex;
-  flex-direction: row; */
   margin: 1rem;
-  /* border: 2px solid; */
   text-align: center;
-  /* height: 45vh; */
-  width: 23vw;
-  /* height: 45vh; */
 }
 .steps > h4 {
   font-size: 2rem;
-}
-.how-to-order {
-  display: flex;
-  flex-direction: row;
 }
 .steps-icon {
   width: 6rem;
@@ -254,11 +226,16 @@ ul {
   grid-row: span 2;
 }
 
-/* This will create 3x images every 8 elements */
-
 .gallery-container > li:nth-child(2n) {
   grid-column: span 4;
   grid-row: span 4;
+}
+
+@media screen and (max-width: 768px) {
+  .gallery-container > li:nth-child(n) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
 }
 
 .gallery-image {

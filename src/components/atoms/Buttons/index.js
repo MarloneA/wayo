@@ -7,11 +7,16 @@ const Button = styled.button`
   background-color: white;
   border: 1.8px solid;
   font-size: 0.8rem;
+  margin-right: 2rem;
+  margin-top: 1rem;
 
   &:hover {
     color: white;
     background-color: black;
     cursor: pointer;
+  }
+  @media screen and (max-width: 768px) {
+    margin-right: 2px;
   }
 `;
 

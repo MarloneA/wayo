@@ -3,18 +3,20 @@ import Button from "../../atoms/Buttons";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import LandingPageShoe from "../LandingPageShoe";
-
+import logo from "../../../assets/images/Black_Logo.png";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
-
 import SHOE_COLLECTION from "../../../fixtures/Shoes/index.json";
-
 import styled, { css } from "styled-components";
 
 const CTAButtons = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  width: 150%;
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Link = styled.a`
@@ -31,27 +33,53 @@ const Link = styled.a`
   }
 `;
 
+const LandingPage = styled.section`
+  display: flex;
+  flex-flow: row;
+  width: 100vw;
+  height: 100vh;
+  @media screen and (max-width: 768px) {
+    height: max-content;
+  }
+`;
+const LandingPageShoeMetadata = styled.div`
+  width: 45vw;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  padding: 5rem;
+  padding-top: 1rem;
+`;
+const CtaControls = styled.div``;
+const LandingPageHeroImage = styled.img`
+  width: 55vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: 0 0;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
 const LandingPageSection = () => {
   const [photoIndex, setphotoIndex] = useState(0);
   const { shoes } = SHOE_COLLECTION;
-  const images = shoes && shoes[2].files;
+  const images = shoes && shoes[3].files;
   return (
-    <section class="landing-page snap-content">
-      <LandingPageShoe shoe={shoes[2]} />
-      <div class="cta-controls">
-        <p>SHOES BROUGHT TO YOU BY WAYO</p>
-        <CTAButtons>
-          <Button href="#discover">Discover More</Button>
-          <Button>Make an Order</Button>
-        </CTAButtons>
-      </div>
-
-      <img
-        class="landing-page-image-1"
-        src={shoes[2].files[0]}
-        alt="nike shoe"
-      />
-    </section>
+    <LandingPage>
+      <LandingPageShoeMetadata>
+        <LandingPageShoe shoe={shoes[3]} />
+        <CtaControls>
+          <p>SHOES BROUGHT TO YOU BY WAYO</p>
+          <CTAButtons>
+            <Button href="#discover">Discover More</Button>
+            <Button>Make an Order</Button>
+          </CTAButtons>
+        </CtaControls>
+      </LandingPageShoeMetadata>
+      <LandingPageHeroImage src={shoes[3].files[1]} alt="nike shoe" />
+    </LandingPage>
   );
 };
 
