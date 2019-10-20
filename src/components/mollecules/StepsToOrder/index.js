@@ -20,7 +20,7 @@ const StepsToOrder = () => {
       <div class="steps">
         <img src={locationIcon} alt="location" width="70px" height="70px" />
         <h4>Delivery</h4>
-        <p>We deliver right to your doorstep at no additional cost</p>
+        <p>We deliver right to your doorstep</p>
       </div>
     </div>
   );

@@ -38,6 +38,7 @@ const LandingPage = styled.section`
   flex-flow: row;
   width: 100vw;
   height: 100vh;
+  
   @media screen and (max-width: 768px) {
     height: max-content;
   }
@@ -74,7 +75,6 @@ const LandingPageSection = () => {
           <p>SHOES BROUGHT TO YOU BY WAYO</p>
           <CTAButtons>
             <Button href="#discover">Discover More</Button>
-            <Button>Make an Order</Button>
           </CTAButtons>
         </CtaControls>
       </LandingPageShoeMetadata>

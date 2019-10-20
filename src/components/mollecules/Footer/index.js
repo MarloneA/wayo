@@ -38,7 +38,7 @@ const Footer = () => {
       </div>
       <p>Or get in touch</p>
       <p>+254 726 678 876</p>
-      <p class="copyright">copyright 2019 Wayo shoes</p>
+      <p class="copyright">&copy; 2019 Litudian</p>
     </footer>
   );
 };

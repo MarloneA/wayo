@@ -4,7 +4,7 @@ import Modal from "@material-ui/core/Modal";
 
 import styled, { css } from "styled-components";
 import menu from "../../../assets/images/iconmonstr-menu-list-thin-240.png";
-import menuThick from "../../../assets/images/menu-thick.png";
+import menuThick from "../../../assets/images/hamburger-menu.png";
 import close from "../../../assets/images/close.png";
 import prev from "../../../assets/images/prev.png";
 import next from "../../../assets/images/next.png";
@@ -33,7 +33,6 @@ const IconButtons = styled.button`
   margin-bottom: 42vh;
   &:hover {
     cursor: pointer;
-
   }
   &:focus {
     outline: none;
@@ -219,7 +218,7 @@ class GalleryContainer extends React.Component {
                 }
                 style={{ padding: "10px" }}
               >
-                <img src={menuThick} alt="menu" width="45px" height="25px" />
+                <img src={menuThick} alt="menu" width="30px" height="25px" />
               </IconButtons>
               <IconButtons
                 onClick={() => this.previousImages()}
@@ -231,12 +230,12 @@ class GalleryContainer extends React.Component {
             </div>
             <ShoeProperties>
               <ImageWrapper
-                size={(this.state.toggleDetails && "80%") || "100%"}
+                size={(!this.state.toggleDetails && "80%") || "100%"}
                 class="hidden"
               >
                 <ModalImage src={openImage} />
               </ImageWrapper>
-              {this.state.toggleDetails && (
+              {!this.state.toggleDetails && (
                 <ToggleDetails>
                   <p>
                     <span style={{ marginRight: "5px" }}>
@@ -251,30 +250,41 @@ class GalleryContainer extends React.Component {
                   </p>
                   <LabelWrapper>
                     <Label>Shoe code</Label>
-                    <Item>{shoe && shoe.code.toUpperCase()}</Item>
+                    <Item>
+                      {(shoe && shoe.code && shoe.code.toUpperCase()) || "-"}
+                    </Item>
                   </LabelWrapper>
                   <LabelWrapper>
                     <Label>name</Label>
-                    <Item>{shoe && shoe.name.toUpperCase()}</Item>
+                    <Item>
+                      {(shoe && shoe.name && shoe.name.toUpperCase()) || "-"}
+                    </Item>
                   </LabelWrapper>
                   <LabelWrapper>
                     <Label>brand</Label>
-                    <Item>{shoe && shoe.brand.toUpperCase()}</Item>
+                    <Item>
+                      {(shoe && shoe.brand && shoe.brand.toUpperCase()) || "-"}
+                    </Item>
                   </LabelWrapper>
                   <LabelWrapper>
                     <Label>Available colors</Label>
-                    <Item>{shoe && shoe.color.toUpperCase()}</Item>
+                    <Item>
+                      {(shoe && shoe.color && shoe.color.toUpperCase()) || "-"}
+                    </Item>
                   </LabelWrapper>
                   <LabelWrapper>
                     <Label>Available sizes</Label>
-                    <Item>{shoe && shoe.size.toUpperCase()}</Item>
+                    <Item>
+                      {(shoe && shoe.size && shoe.size.toUpperCase()) || "-"}
+                    </Item>
                   </LabelWrapper>
                   <LabelWrapper>
                     <Label>price</Label>
                     <Item>
-                      KES{" "}
-                      {(shoe && new Intl.NumberFormat().format(shoe.price)) ||
-                        "-"}
+                      {(shoe &&
+                        isNaN(shoe.price) &&
+                        "Get In Touch for Price") ||
+                        `KES ${new Intl.NumberFormat().format(shoe.price)}`}
                     </Item>
                   </LabelWrapper>
                 </ToggleDetails>
