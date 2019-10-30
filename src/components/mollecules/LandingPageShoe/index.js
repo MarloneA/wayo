@@ -1,11 +1,25 @@
 import React from "react";
 import logo from "../../../assets/images/Black_Logo.png";
+import styled from "styled-components";
+
+const Logo = styled.img`
+  width: 7rem;
+  height: 7rem;
+  object-fit: cover;
+  object-position: -35px -10px;
+  /* margin-bottom: -70px; */
+  border-radius: 100%;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
 
 const LandingPageShoe = ({ shoe }) => {
-  const { name, brand, size, color, files } = shoe;
+  const { name, size, color } = shoe;
   return (
     <>
-      <img src={logo} alt="wayo logo" class="wayo-logo" />
+      <Logo src={logo} alt="wayo logo" />
       <b>#StepInStyleNaWayo</b>
       <div class="shoe-brand">{name.toUpperCase()}</div>
       <div class="shoe-specifications">

@@ -9,6 +9,7 @@ import close from "../../../assets/images/close.png";
 import prev from "../../../assets/images/prev.png";
 import next from "../../../assets/images/next.png";
 import info from "../../../assets/images/info.png";
+import { Link } from "react-router-dom";
 
 const Label = styled.p`
   color: #808080;
@@ -122,12 +123,17 @@ class GalleryContainer extends React.Component {
     });
   };
   handleClose = () => {
-    this.setState({
-      open: false,
-      openImage: "",
-      images: [],
-      toggleDetails: false
-    });
+    this.setState(
+      {
+        open: false,
+        openImage: "",
+        images: [],
+        toggleDetails: false
+      },
+      () => {
+        window.history.replaceState("/", "Sample Title", `/`);
+      }
+    );
   };
 
   currentImage = url => {
@@ -168,6 +174,8 @@ class GalleryContainer extends React.Component {
   render() {
     const { openImage, shoe, shoeCollection } = this.state;
 
+    console.log("props", this.props);
+
     return (
       <>
         <ul id="discover" class="gallery-container">
@@ -182,6 +190,11 @@ class GalleryContainer extends React.Component {
                       shoe
                     });
                     this.currentImage(shoe.files[0]);
+                    window.history.replaceState(
+                      "/",
+                      "Sample Title",
+                      `/shoes/${shoe.code || "code-not-found"}`
+                    );
                   }}
                   class="gallery-image"
                 >

@@ -27,7 +27,7 @@ const Footer = () => {
             alt="twitter-icon"
           />
         </a>
-        <a href="https://www.instagram.com/wayo_footwear/" target="_blank">
+        <a href="https://www.instagram.com/wayo.footwear/" target="_blank">
           <img
             src={instagramLogo}
             width="20px"
@@ -37,7 +37,7 @@ const Footer = () => {
         </a>
       </div>
       <p>Or get in touch</p>
-      <p>+254 726 678 876</p>
+      <p>+254796611765</p>
       <p class="copyright">&copy; 2019 Litudian</p>
     </footer>
   );

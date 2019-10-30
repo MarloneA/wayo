@@ -13,10 +13,6 @@ const CTAButtons = styled.div`
   flex-flow: row wrap;
   justify-content: flex-start;
   width: 150%;
-  @media screen and (max-width: 768px) {
-    justify-content: center;
-    align-items: center;
-  }
 `;
 
 const Link = styled.a`
@@ -38,9 +34,10 @@ const LandingPage = styled.section`
   flex-flow: row;
   width: 100vw;
   height: 100vh;
-  
+
   @media screen and (max-width: 768px) {
     height: max-content;
+    flex-flow: column-reverse;
   }
 `;
 const LandingPageShoeMetadata = styled.div`
@@ -50,6 +47,11 @@ const LandingPageShoeMetadata = styled.div`
   justify-content: space-between;
   padding: 5rem;
   padding-top: 1rem;
+
+  @media screen and (max-width: 768px) {
+    padding: 2rem;
+    width: 60vw;
+  }
 `;
 const CtaControls = styled.div``;
 const LandingPageHeroImage = styled.img`
@@ -59,7 +61,9 @@ const LandingPageHeroImage = styled.img`
   object-position: 0 0;
 
   @media screen and (max-width: 768px) {
-    display: none;
+    width: 100vw;
+    height: 45vh;
+    object-fit: scale-down;
   }
 `;
 
