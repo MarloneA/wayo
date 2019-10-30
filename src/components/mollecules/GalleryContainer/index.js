@@ -262,37 +262,37 @@ class GalleryContainer extends React.Component {
                     SHOE DETAILS
                   </p>
                   <LabelWrapper>
-                    <Label>Shoe code</Label>
+                    <Label>Shoe Code</Label>
                     <Item>
                       {(shoe && shoe.code && shoe.code.toUpperCase()) || "-"}
                     </Item>
                   </LabelWrapper>
                   <LabelWrapper>
-                    <Label>name</Label>
+                    <Label>Name</Label>
                     <Item>
                       {(shoe && shoe.name && shoe.name.toUpperCase()) || "-"}
                     </Item>
                   </LabelWrapper>
                   <LabelWrapper>
-                    <Label>brand</Label>
+                    <Label>Brand</Label>
                     <Item>
                       {(shoe && shoe.brand && shoe.brand.toUpperCase()) || "-"}
                     </Item>
                   </LabelWrapper>
                   <LabelWrapper>
-                    <Label>Available colors</Label>
+                    <Label>Available Colors</Label>
                     <Item>
                       {(shoe && shoe.color && shoe.color.toUpperCase()) || "-"}
                     </Item>
                   </LabelWrapper>
                   <LabelWrapper>
-                    <Label>Available sizes</Label>
+                    <Label>Available Sizes</Label>
                     <Item>
                       {(shoe && shoe.size && shoe.size.toUpperCase()) || "-"}
                     </Item>
                   </LabelWrapper>
                   <LabelWrapper>
-                    <Label>price</Label>
+                    <Label>Price</Label>
                     <Item>
                       {(shoe &&
                         isNaN(shoe.price) &&
