@@ -2,12 +2,29 @@ import React from "react";
 import facebookLogo from "../../../assets/images/facebook.png";
 import twitterLogo from "../../../assets/images/twitter-white.png";
 import instagramLogo from "../../../assets/images/instagram.png";
+import styled from "styled-components";
+
+const WayoFooter = styled.footer`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 45vh;
+  color: #f1f1f1;
+  background: url("../../../assets/images/footer-bg.png") repeat-y;
+`;
+const Social = styled.footer`
+  display: flex;
+  justify-content: space-between;
+  width: 10vw;
+`;
 
 const Footer = () => {
   return (
-    <footer class="footer snap-content">
+    <WayoFooter>
       <p>Follow us on Social Media</p>
-      <div class="social">
+      <Social>
         <a
           href="https://www.facebook.com/Wayo-106389897383736/"
           target="_blank"
@@ -35,11 +52,11 @@ const Footer = () => {
             alt="instagram-icon"
           />
         </a>
-      </div>
+      </Social>
       <p>Or get in touch</p>
       <p>+254796611765</p>
       <p class="copyright">&copy; 2019 Litudian</p>
-    </footer>
+    </WayoFooter>
   );
 };
 

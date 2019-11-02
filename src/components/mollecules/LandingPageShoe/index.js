@@ -7,7 +7,6 @@ const Logo = styled.img`
   height: 7rem;
   object-fit: cover;
   object-position: -35px -10px;
-  /* margin-bottom: -70px; */
   border-radius: 100%;
 
   @media screen and (max-width: 768px) {
@@ -15,32 +14,67 @@ const Logo = styled.img`
   }
 `;
 
+const HashTag = styled.b``;
+
+const ShoeBrand = styled.div`
+  grid-area: 2 / 2 / span 2 / span 3;
+  font-size: 3em;
+  font-weight: 600;
+  grid-row-start: 3;
+
+  @media screen and (max-width: 768px) {
+    grid-area: 2 / 2 / span 2 / span 3;
+    font-size: 2em;
+    font-weight: 600;
+    grid-row-start: 3;
+  }
+`;
+
+const ShoeSpecifications = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+`;
+const ShoeSizeGuide = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-right: 10%;
+`;
+const ShoeSizeSpec = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.3rem 0;
+  width: 35vh;
+`;
+const Details = styled.div``;
+const Paragraph = styled.p``;
+
 const LandingPageShoe = ({ shoe }) => {
   const { name, size, color } = shoe;
   return (
     <>
       <Logo src={logo} alt="wayo logo" />
-      <b>#StepInStyleNaWayo</b>
-      <div class="shoe-brand">{name.toUpperCase()}</div>
-      <div class="shoe-specifications">
-        <div class="shoe-size-guide">
-          <p>SIZE</p>
-          <div>
-            <div>8</div>
-            <div>{size}</div>
-            <div>7.5</div>
-          </div>
-          <div>
-            <div>US</div>
-            <div>EU</div>
-            <div>UK</div>
-          </div>
-        </div>
-        <div>
-          <p>AVAILABLE COLORS</p>
-          <p>{color}</p>
-        </div>
-      </div>
+      <HashTag>#StepInStyleNaWayo</HashTag>
+      <ShoeBrand>{name.toUpperCase()}</ShoeBrand>
+      <ShoeSpecifications>
+        <ShoeSizeGuide>
+          <Paragraph>SIZE</Paragraph>
+          <ShoeSizeSpec>
+            <Details>8</Details>
+            <Details>{size}</Details>
+            <Details>7.5</Details>
+          </ShoeSizeSpec>
+          <ShoeSizeSpec>
+            <Details>US</Details>
+            <Details>EU</Details>
+            <Details>UK</Details>
+          </ShoeSizeSpec>
+        </ShoeSizeGuide>
+        <Details>
+          <Paragraph>AVAILABLE COLORS</Paragraph>
+          <Paragraph>{color}</Paragraph>
+        </Details>
+      </ShoeSpecifications>
     </>
   );
 };

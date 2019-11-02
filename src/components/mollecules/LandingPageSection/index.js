@@ -1,32 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "../../atoms/Buttons";
-import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import LandingPageShoe from "../LandingPageShoe";
-import logo from "../../../assets/images/Black_Logo.png";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import SHOE_COLLECTION from "../../../fixtures/Shoes/index.json";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const CTAButtons = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   width: 150%;
-`;
-
-const Link = styled.a`
-  padding: 0.8rem;
-  font-weight: 900;
-  background-color: white;
-  border: 1.8px solid;
-  font-size: 0.8rem;
-
-  &:hover {
-    color: white;
-    background-color: black;
-    cursor: pointer;
-  }
 `;
 
 const LandingPage = styled.section`
@@ -57,8 +42,9 @@ const CtaControls = styled.div``;
 const LandingPageHeroImage = styled.img`
   width: 55vw;
   height: 100vh;
-  object-fit: cover;
-  object-position: 0 0;
+  object-fit: scale-down;
+  padding: 20px;
+  /* object-position: 0 0; */
 
   @media screen and (max-width: 768px) {
     width: 100vw;
@@ -66,11 +52,18 @@ const LandingPageHeroImage = styled.img`
     object-fit: scale-down;
   }
 `;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    color: white;
+  }
+`;
 
 const LandingPageSection = () => {
-  const [photoIndex, setphotoIndex] = useState(0);
   const { shoes } = SHOE_COLLECTION;
-  const images = shoes && shoes[3].files;
+
   return (
     <LandingPage>
       <LandingPageShoeMetadata>
@@ -78,7 +71,9 @@ const LandingPageSection = () => {
         <CtaControls>
           <p>SHOES BROUGHT TO YOU BY WAYO</p>
           <CTAButtons>
-            <Button href="#discover">Discover More</Button>
+            <StyledLink to={"/shoes"}>
+              <Button>Discover More</Button>
+            </StyledLink>
           </CTAButtons>
         </CtaControls>
       </LandingPageShoeMetadata>
