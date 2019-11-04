@@ -1,24 +1,21 @@
-import React from "react";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
-import LandingPage from "./components/pages/LandingPage";
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    color: ${props => (props.whiteColor ? "white" : "black")};
-    font-family: ${props => props.theme.fontFamily};
-    font-weight: 300;
-  }
-`;
+import React, { Suspense } from "react";
+import { ThemeProvider } from "styled-components";
+import LoadingPage from "./components/pages/LoadingPage";
+import AppRoutes from "./routes/AppRoutes";
+import VendorStyles from "./VendorStyles";
+import theme from "./themes/default";
 
 const App = () => {
   return (
-    <ThemeProvider theme={{ fontFamily: "Futura" }}>
-      <>
-        <LandingPage />
-        <GlobalStyle whiteColor />
-      </>
-    </ThemeProvider>
+    <>
+      <Suspense loader={<LoadingPage />}>
+        <AppRoutes />
+      </Suspense>
+
+      <ThemeProvider theme={theme}>
+        <VendorStyles />
+      </ThemeProvider>
+    </>
   );
 };
 export default App;
