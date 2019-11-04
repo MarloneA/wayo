@@ -2,6 +2,7 @@ import React from "react";
 import facebookLogo from "../../../assets/images/facebook.png";
 import twitterLogo from "../../../assets/images/twitter-white.png";
 import instagramLogo from "../../../assets/images/instagram.png";
+import footerBackground from "../../../assets/images/footer-bg.png";
 import styled from "styled-components";
 
 const WayoFooter = styled.footer`
@@ -12,7 +13,7 @@ const WayoFooter = styled.footer`
   width: 100vw;
   height: 45vh;
   color: #f1f1f1;
-  background: url("../../../assets/images/footer-bg.png") repeat-y;
+  background-image: url(${footerBackground});
 `;
 const Social = styled.footer`
   display: flex;

@@ -7,9 +7,10 @@ import ShoeDetailsPage from "../../pages/ShoeDetailsPage";
 const GalleryContainerWrapper = styled.ul`
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  grid-template-rows: repeat(6, 105px);
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-rows: repeat(4, 120px);
   grid-auto-flow: dense;
+  width: 80vw;
 
   @media screen and (max-width: 768px) {
     grid-template-rows: repeat(6, 120px);
@@ -21,27 +22,15 @@ const GalleryContainerWrapper = styled.ul`
 
 const GalleryItem = styled.li`
   margin: 5px;
+
   &:nth-child(n) {
     grid-column: span 4;
     grid-row: span 4;
-    overflow: hidden;
-  }
-  /* &:nth-child(2n) {
-    grid-column: span 4;
-    grid-row: span 4;
-  } */
-
-  @media screen and (max-width: 768px) {
-    &:nth-child(n) {
-      grid-column: span 2;
-      grid-row: span 2;
-    }
   }
 `;
 const ShoeImage = styled.img`
   width: 100%;
-  height: 100%;
-  object-fit: scale-down;
+  object-fit: cover;
 
   &:hover {
     opacity: 0.5;
@@ -90,27 +79,26 @@ class GalleryContainer extends React.Component {
     const { shoeCollection, openImage, shoe, open } = this.state;
 
     return (
-      <>
-        <GalleryContainerWrapper>
-          {shoeCollection &&
-            shoeCollection.map(shoe => (
-              <GalleryItem
-                key={shoe.code}
-                onClick={() => {
-                  this.handleOpen();
-                  this.setState({
-                    images: shoe.files,
-                    shoe
-                  });
-                  this.currentImage(shoe.files[0]);
-                }}
-              >
-                <Link to={`${this.props.match.url}/${shoe.code}`}>
-                  <ShoeImage src={shoe.files[0]} alt="shoe" />
-                </Link>
-              </GalleryItem>
-            ))}
-        </GalleryContainerWrapper>
+      <GalleryContainerWrapper>
+        {shoeCollection &&
+          shoeCollection.map(shoe => (
+            <GalleryItem
+              key={shoe.code}
+              onClick={() => {
+                this.handleOpen();
+                this.setState({
+                  images: shoe.files,
+                  shoe
+                });
+                this.currentImage(shoe.files[0]);
+              }}
+            >
+              <Link to={`${this.props.match.url}/${shoe.code}`}>
+                <ShoeImage src={shoe.files[0]} alt="shoe" />
+              </Link>
+            </GalleryItem>
+          ))}
+
         <Route
           exact
           path={`${this.props.match.url}/:shoeId`}
@@ -127,7 +115,7 @@ class GalleryContainer extends React.Component {
             );
           }}
         />
-      </>
+      </GalleryContainerWrapper>
     );
   }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Modal from "@material-ui/core/Modal";
 
+import Button from "../../atoms/Buttons";
 import menuThick from "../../../assets/images/hamburger-menu.png";
 import close from "../../../assets/images/close.png";
 import prev from "../../../assets/images/prev.png";
@@ -88,6 +89,14 @@ const ShoeProperties = styled.div`
     position: relative;
   }
 `;
+const PurchaseShoe = styled(Modal)`
+  width: 50vw;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+`;
 
 class ShoeDetailsPage extends React.Component {
   state = {
@@ -100,16 +109,31 @@ class ShoeDetailsPage extends React.Component {
     openImage: "",
     previousImages: [],
     shoe: {},
-    toggleDetails: false
+    toggleDetails: false,
+    purchaseModal: false
+  };
+
+  handlePurchaseModalOpen = () => {
+    this.setState({
+      purchaseModal: true
+    });
+  };
+
+  handlePurchaseModalClose = () => {
+    this.setState({
+      purchaseModal: false
+    });
   };
 
   nextImages = () => {
     const { images, currentIndex } = this.state;
+    console.log("currentIndex before click: ", currentIndex);
 
     if (currentIndex < images.length) {
-      this.setState({ currentIndex: currentIndex + 1 }, () =>
-        this.props.currentImage(images[currentIndex])
-      );
+      this.setState({ currentIndex: currentIndex + 1 }, () => {
+        this.props.currentImage(images[currentIndex]);
+        console.log("currentIndex after click: ", currentIndex);
+      });
     } else {
       this.setState({
         disableNext: true,
@@ -120,11 +144,13 @@ class ShoeDetailsPage extends React.Component {
 
   previousImages = () => {
     const { images, currentIndex } = this.state;
+    console.log("currentIndex before click: ", currentIndex);
 
     if (currentIndex > -1) {
-      this.setState({ currentIndex: currentIndex - 1 }, () =>
-        this.props.currentImage(images[currentIndex])
-      );
+      this.setState({ currentIndex: currentIndex - 1 }, () => {
+        this.props.currentImage(images[currentIndex]);
+        console.log("currentIndex after click: ", currentIndex);
+      });
     } else {
       this.setState({
         disableNext: false,
@@ -135,6 +161,7 @@ class ShoeDetailsPage extends React.Component {
 
   render() {
     const { openImage, shoe, open, handleClose } = this.props;
+    const { purchaseModal } = this.state;
     return (
       <Modal
         aria-labelledby="simple-modal-title"
@@ -154,7 +181,8 @@ class ShoeDetailsPage extends React.Component {
               flexFlow: "column",
               justifyContent: "center",
               height: "100vh",
-              background: "white"
+              background: "white",
+              padding: "0 10px"
             }}
           >
             <IconButtons
@@ -180,7 +208,7 @@ class ShoeDetailsPage extends React.Component {
             {!this.state.toggleDetails && (
               <ToggleDetails>
                 <p>
-                  <span>
+                  <span style={{ marginRight: "5px" }}>
                     <img
                       src={info}
                       width="15px"
@@ -227,6 +255,35 @@ class ShoeDetailsPage extends React.Component {
                       `KES ${new Intl.NumberFormat().format(shoe.price)}`}
                   </Item>
                 </LabelWrapper>
+                <Button onClick={this.handlePurchaseModalOpen}>
+                  Purchase Shoe
+                </Button>
+
+                <PurchaseShoe
+                  aria-labelledby="simple-modal-title"
+                  aria-describedby="simple-modal-description"
+                  open={purchaseModal}
+                  onClose={this.handlePurchaseModalClose}
+                >
+                  <div style={{ background: "white", padding: "20px" }}>
+                    <h2>Steps to Order</h2>
+                    <br />
+
+                    <ul>
+                      <li>
+                        Copy Shoe Code{" "}
+                        <h1>
+                          {(shoe && shoe.code && shoe.code.toUpperCase()) ||
+                            "-"}
+                        </h1>
+                      </li>
+                      <li>
+                        Use Mpesa PayBill no <b>799643</b>{" "}
+                      </li>
+                      <li>Delivery</li>
+                    </ul>
+                  </div>
+                </PurchaseShoe>
               </ToggleDetails>
             )}
           </ShoeProperties>
@@ -236,7 +293,8 @@ class ShoeDetailsPage extends React.Component {
               justifyContent: "center",
               flexFlow: "column",
               height: "100vh",
-              background: "white"
+              background: "white",
+              padding: "0 10px"
             }}
           >
             <IconButtons onClick={() => handleClose()} style={{}}>

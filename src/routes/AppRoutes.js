@@ -12,11 +12,6 @@ const ShoesGalleryPage = lazy(() =>
     /* webpackChunkName: "LandingPage" */ "../components/pages/ShoesGalleryPage"
   )
 );
-const ShoeDetailsPage = lazy(() =>
-  import(
-    /* webpackChunkName: "LandingPage" */ "../components/pages/ShoeDetailsPage"
-  )
-);
 
 const AppRoutes = () => (
   <Switch>

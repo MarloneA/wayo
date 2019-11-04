@@ -7,18 +7,12 @@ import SHOE_COLLECTION from "../../../fixtures/Shoes/index.json";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const CTAButtons = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  width: 150%;
-`;
-
 const LandingPage = styled.section`
   display: flex;
   flex-flow: row;
+  align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 92vh;
 
   @media screen and (max-width: 768px) {
     height: max-content;
@@ -29,9 +23,9 @@ const LandingPageShoeMetadata = styled.div`
   width: 45vw;
   display: flex;
   flex-flow: column;
-  justify-content: space-between;
-  padding: 5rem;
-  padding-top: 1rem;
+  justify-content: space-evenly;
+  padding: 0 5rem;
+  height: 77%;
 
   @media screen and (max-width: 768px) {
     padding: 2rem;
@@ -39,17 +33,21 @@ const LandingPageShoeMetadata = styled.div`
   }
 `;
 const CtaControls = styled.div``;
+const CTAButtons = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  width: 150%;
+`;
 const LandingPageHeroImage = styled.img`
-  width: 55vw;
-  height: 100vh;
+  width: 55%;
   object-fit: scale-down;
   padding: 20px;
-  /* object-position: 0 0; */
 
   @media screen and (max-width: 768px) {
     width: 100vw;
-    height: 45vh;
-    object-fit: scale-down;
+    object-fit: cover;
+    padding: 0;
   }
 `;
 const StyledLink = styled(Link)`

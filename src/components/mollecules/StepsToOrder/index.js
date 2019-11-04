@@ -9,12 +9,14 @@ const StepsToOrderWrapper = styled.div`
   flex-flow: row wrap;
   justify-content: space-evenly;
   align-items: center;
+  margin: 50px 0;
 `;
 
 const Heading = styled.div`
   font-size: 2rem;
   width: 100vw;
   text-align: center;
+  margin-bottom: 70px;
 `;
 const Steps = styled.div`
   margin: 1rem;
